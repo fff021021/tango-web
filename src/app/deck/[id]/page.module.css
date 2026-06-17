@@ -1,0 +1,328 @@
+.main {
+  flex: 1;
+  padding: 40px 24px;
+  background-color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.deckTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studyLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* コントロールパネル */
+.controlPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.statsCard {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.statsNumber {
+  color: var(--primary);
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+  border-radius: 4px;
+  transition: width var(--transition-normal);
+}
+
+.settingsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settingBtn {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.settingActive {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+/* カードエリア */
+.cardArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardProgress {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressText {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.tinyBarBg {
+  width: 100%;
+  height: 4px;
+  background-color: var(--bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tinyBarFill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: width var(--transition-normal);
+}
+
+.cardWrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* 判定ボタン */
+.judgeActions {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 8px;
+}
+
+.judgeBtn {
+  flex: 1;
+  height: 52px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  background-color: var(--bg-secondary);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+/* 「まだ」ボタン */
+.btnLearning {
+  color: var(--warning-hover);
+}
+.btnLearning:hover {
+  background-color: var(--warning-light);
+  border-color: var(--warning);
+}
+
+/* 「覚えた」ボタン */
+.btnMemorized {
+  color: var(--success-hover);
+}
+.btnMemorized:hover {
+  background-color: var(--success-light);
+  border-color: var(--success);
+}
+
+/* 現在のステータスに合わせたスタイル強調 */
+.judgeBtn.activeStatus {
+  background-color: var(--bg-primary);
+}
+
+.btnLearning.activeStatus {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.btnMemorized.activeStatus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* ナビゲーション操作 */
+.navActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.shortcutGuide {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* 空・完了状態 */
+.emptyState, .completedState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: 40px;
+}
+
+.emptyIcon, .completedIcon {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.completedIcon {
+  color: var(--success);
+}
+
+.emptyState h3, .completedState h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.emptyState p, .completedState p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* ローディング */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  gap: 16px;
+}
+
+.spinner {
+  color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .studyLayout {
+    grid-template-columns: 1fr; /* 縦並び */
+    gap: 24px;
+  }
+
+  .controlPanel {
+    order: -1; /* スマホではコントロールパネルを一番上に */
+  }
+
+  .settingsGroup {
+    flex-direction: row; /* 横に並べる */
+  }
+
+  .settingBtn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .cardArea {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 24px 16px;
+  }
+
+  .topNav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .topNav button {
+    width: 100%;
+  }
+
+  .deckTitle {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .settingsGroup {
+    flex-direction: column; /* 超小型画面では縦に */
+  }
+
+  .shortcutGuide {
+    display: none; /* スマホではキーボードガイドを非表示に */
+  }
+}
