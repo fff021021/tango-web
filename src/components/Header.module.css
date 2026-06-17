@@ -47,58 +47,126 @@
   -webkit-text-fill-color: transparent;
 }
 
-.userInfo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.userMenuContainer {
+  position: relative;
+  display: inline-block;
 }
 
-.userBadge {
+.avatarBtn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background-color: var(--bg-primary);
-  padding: 6px 12px;
-  border-radius: 20px;
+  gap: 8px;
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 24px;
   color: var(--text-secondary);
-  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.emailText {
-  max-width: 150px;
+.avatarBtn:hover {
+  background-color: var(--bg-primary);
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.avatarIconWrapper {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chevron {
+  transition: transform var(--transition-fast);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ドロップダウンメニューのスタイル */
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 240px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 110;
+  animation: dropdownEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdownEnter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.emailLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.maskedEmail {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.logoutBtn {
-  padding: 6px 12px;
+.dropdownDivider {
+  height: 1px;
+  background-color: var(--border);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background-color: transparent;
+  color: var(--text-secondary);
   font-size: 14px;
+  font-weight: 600;
   border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  justify-content: flex-start;
+}
+
+.dropdownItem:hover {
+  background-color: var(--danger-light);
+  color: var(--danger-hover);
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 640px) {
   .container {
     padding: 0 16px;
-  }
-  
-  .emailText {
-    display: none; /* スマホではメールアドレスのテキストを非表示に */
-  }
-
-  .userBadge {
-    padding: 6px;
-    border-radius: 50%;
-  }
-
-  .logoutText {
-    display: none; /* スマホではログアウトテキストを非表示にしてアイコンのみに */
-  }
-
-  .logoutBtn {
-    padding: 8px;
-    border-radius: 50%;
   }
 }
